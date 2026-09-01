@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Roboto", sans-serif;
+  --color-primary: #3b82f6;
+  --color-dark: #111827;
+  --color-gray: #6b7280;
+  --color-light-bg: #f0f4ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-600 bg-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900;
+  }
+}
+
+/* Animations from original site */
+@keyframes fadeOut {
+  from { opacity: 1; visibility: visible; }
+  to { opacity: 0; visibility: hidden; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-10px); opacity: 1; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.6s 1.4s ease both;
+}
+.animate-spin-slow {
+  animation: spin 2s linear infinite;
+}
+.animate-float {
+  animation: float 0.8s ease-in-out infinite;
+}
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+.delay-150 {
+  animation-delay: 0.15s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Section styling */
+.section-padding {
+  @apply py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto;
+}
+
+.gold-divider {
+  @apply h-1 bg-blue-500 w-16 mx-auto rounded-full my-4;
+}
+
+.section-badge {
+  @apply inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-500 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 mx-auto;
+}
